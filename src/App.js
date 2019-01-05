@@ -42,23 +42,23 @@ class App extends React.Component {
   changeIndex() {
     this.setState({
       randomIndex: Math.floor(Math.random() * 35)
-    })
+    })    
+    console.log()
   }
 
 
   render() {
-    var { isLoaded, data } = this.state;
+    console.log(this.state.data[this.state.randomIndex].content)
      /* console.log(data.map(user => user.quote)); */
     return (
-      <div className="index__mainArea">
+      <div id="quote-box" className="index__mainArea">
         <div className="index__textArea">
-          {/*
-          <QuoteText qText={data.map(user => user.quote)} rIndex={this.state.randomIndex} />
-          <QuoteAuthor author={data.map(user => user.author)} rIndex={this.state.randomIndex} />
-          */}
-          <ul className="index__buttonsLayout">
+          
+          <QuoteText qText={this.state.data[this.state.randomIndex].content} />
+          <QuoteAuthor author={this.state.data[this.state.randomIndex].title} />
+           <ul className="index__buttonsLayout">
             <li><TweetQuote tweetQuote="tweet quote" /></li>
-            <li><NewQuote cIndex={this.changeIndex} /></li>
+            <li><button type="button" id="new-quote" onClick={this.changeIndex}>New Quote</button></li>
           </ul>
         </div>
       </div>
@@ -68,25 +68,25 @@ class App extends React.Component {
 
 const QuoteText = (props) => {
   return (
-    <div id="text">"{props.qText[props.rIndex]}"</div>
+    <div id="text" dangerouslySetInnerHTML={{ __html: props.qText }}></div>
   );
 }
 
 const QuoteAuthor = (props) => {
   return (
-    <div id="author">{props.author[props.rIndex]}</div>
+    <div id="author">{props.author}</div>
   );
 }
 
 const NewQuote = (props) => {
   return (
-    <button type="button" id="new-quote" onClick={props.cIndex}>New quote</button>
+    <button type="button" id="new-quote">New Quote</button>
   );
 }
 
 const TweetQuote = (props) => {
   return (
-    <a href="https://www.twitter.com/intent/tweet" rel="noopener noreferrer" target="_blank" id="tweet-quote" className="twitter fab fa-twitter-square"></a>
+    <a href="https://www.twitter.com/intent/tweet" rel="noopener noreferrer" target="_blank" id="tweet-quote" className="twitter fab fa-twitter-square fa-2x"></a>
   );
 }
       
