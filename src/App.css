@@ -19,8 +19,9 @@ body {
 .index__mainArea {
   display: flex;
   justify-content: center;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
+  margin-top: 200px;
   background-color: white;
 }
 
@@ -57,6 +58,7 @@ body {
 .twitter {
   display: inline-block;
   background-color: var(--index-color);
+  width: 30px;
   padding: 3px;
   border-radius: 3px;
   color: white;
