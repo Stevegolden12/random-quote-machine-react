@@ -74,15 +74,10 @@ const QuoteText = (props) => {
 
 const QuoteAuthor = (props) => {
   return (
-    <div id="author">{props.author}</div>
+    <div id="author" dangerouslySetInnerHTML={{ __html: props.author }}></div>
   );
 }
 
-const NewQuote = (props) => {
-  return (
-    <button type="button" id="new-quote">New Quote</button>
-  );
-}
 
 const TweetQuote = (props) => {
   return (
