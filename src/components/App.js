@@ -1,8 +1,12 @@
 /* To get the random quote API */
 
 import React, { Component } from 'react';
-import  myData from './data.json';
-import './App.css';
+import  myData from '../data.json';
+import '../App.css';
+
+import QuoteAuthor from './QuoteAuthor';
+import QuoteText from './QuoteText';
+import TweetQuote from './TweetQuote';
 
 
 class App extends React.Component {
@@ -66,23 +70,5 @@ class App extends React.Component {
   }
 }
 
-const QuoteText = (props) => {
-  return (
-    <div id="text" dangerouslySetInnerHTML={{ __html: props.qText }}></div>
-  );
-}
 
-const QuoteAuthor = (props) => {
-  return (
-    <div id="author" dangerouslySetInnerHTML={{ __html: props.author }}></div>
-  );
-}
-
-
-const TweetQuote = (props) => {
-  return (
-    <a href="https://www.twitter.com/intent/tweet" rel="noopener noreferrer" target="_blank" id="tweet-quote" className="twitter fab fa-twitter-square fa-2x"></a>
-  );
-}
-      
-      export default App;
+export default App;
